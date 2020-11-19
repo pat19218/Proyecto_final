@@ -141,16 +141,10 @@ module decode (input phase, input c_flag, input z_flag, input [3:0]instr,
 endmodule
 
 
-module buftri(input ena, input [3:0]d, output logic [3:0]q);
+module buftri(input ena, input [3:0] d, output [3:0] q);
 
-	always @ (*) begin
-		if (ena == 0) begin
-			q <= 4'bzzzz;
-		end
-		else begin
-			q <= d;
-		end
-	end
+    assign q = ena ? d : 4'bz;
+
 endmodule
 
 
@@ -271,8 +265,8 @@ module uP (input clock, reset,
 
 	RAM memram(.csRAM(comand[5]), .weRAM(comand[4]), .address(address_RAM), .data(data_bus) );
 
-	buftri InPush(.ena(comand[2]), .d(pushbuttons), .q(data_bus)  );
+	buftri InPush(.ena(comand[2]), .d(pushbuttons), .q(data_bus) );
 
-	buftri OutSi(.ena(comand[0]), .d(data_bus), .q(FF_out)  );
+	buftri OutSi(.ena(comand[0]), .d(data_bus), .q(FF_out) );
 
 endmodule
