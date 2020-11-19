@@ -1,5 +1,5 @@
 $date
-	Wed Nov 18 20:19:41 2020
+	Wed Nov 18 20:25:54 2020
 $end
 $version
 	Icarus Verilog
@@ -100,10 +100,10 @@ $scope module alu $end
 $var wire 4 U A [3:0] $end
 $var wire 4 V B [3:0] $end
 $var wire 3 W funcion [2:0] $end
-$var reg 5 X Alu_resultado [4:0] $end
-$var reg 1 9 carry $end
-$var reg 4 Y resul [3:0] $end
-$var reg 1 2 zero $end
+$var wire 1 2 zero $end
+$var wire 4 X resul [3:0] $end
+$var wire 1 9 carry $end
+$var reg 5 Y regresul [4:0] $end
 $upscope $end
 $scope module in_oprnd $end
 $var wire 4 Z d [3:0] $end
@@ -154,8 +154,8 @@ bx ]
 bx \
 x[
 bx Z
-bx Y
-bx X
+b10101 Y
+b101 X
 bx W
 bx V
 bx U
@@ -163,13 +163,13 @@ bx T
 bx S
 bx R
 bx Q
-bx P
+b101 P
 xO
 bx N
 xM
 bx L
-bx K
-bx J
+b101 K
+b101 J
 xI
 b110 H
 xG
@@ -186,14 +186,14 @@ bx =
 bx <
 bx ;
 bx :
-x9
+19
 bx 8
 bx 7
 bx 6
-bx 5
+b101 5
 x4
 bx 3
-x2
+02
 b110 1
 bx 0
 b0 /
@@ -213,23 +213,23 @@ x"
 bx !
 $end
 #2
+b0 K
 bz +
 bz =
 bz N
 bz H
+12
 b0 !
 b0 0
 b0 L
 b0 V
 b0 _
-b0 K
-12
-09
 b0 5
 b0 J
 b0 P
-b0 Y
 b0 X
+09
+b0 Y
 0M
 0G
 0`
@@ -408,8 +408,8 @@ b1101010 @
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+b110 Y
 b110 H
 b110 !
 b110 0
@@ -623,8 +623,8 @@ b1010 \
 b1100 5
 b1100 J
 b1100 P
-b1100 Y
 b1100 X
+b1100 Y
 0I
 1O
 b11 W
@@ -681,13 +681,13 @@ b1000000001000 8
 b1000000001000 ?
 b1000000001000 A
 b1010000 @
-14
-09
 b1100 5
 b1100 J
 b1100 P
-b1100 Y
 b1100 X
+09
+14
+b1100 Y
 0$
 b1100 )
 b1100 ;
@@ -708,8 +708,8 @@ b1000 \
 b0 5
 b0 J
 b0 P
-b0 Y
 b0 X
+b0 Y
 0I
 b1 W
 1[
@@ -759,8 +759,8 @@ bz \
 b1100 5
 b1100 J
 b1100 P
-b1100 Y
 b1100 X
+b1100 Y
 1I
 b0 W
 0[
@@ -853,8 +853,8 @@ b1100 \
 b0 5
 b0 J
 b0 P
-b0 Y
 b0 X
+b0 Y
 0I
 b1 W
 1[
@@ -904,8 +904,8 @@ bz \
 b1100 5
 b1100 J
 b1100 P
-b1100 Y
 b1100 X
+b1100 Y
 1I
 b0 W
 0[
@@ -929,12 +929,12 @@ b1 L
 b1 V
 b1 _
 b1 \
-19
 b1000 5
 b1000 J
 b1000 P
-b1000 Y
-b11000 X
+b1000 X
+19
+b11000 Y
 0I
 1O
 b11 W
@@ -991,13 +991,13 @@ b1000000001000 8
 b1000000001000 ?
 b1000000001000 A
 b1010100 @
-14
-09
 b1000 5
 b1000 J
 b1000 P
-b1000 Y
 b1000 X
+09
+14
+b1000 Y
 0$
 0"
 1'
@@ -1016,12 +1016,11 @@ b1011 L
 b1011 V
 b1011 _
 b1011 \
-19
 b111 5
 b111 J
 b111 P
+b111 X
 b111 Y
-b10111 X
 0I
 1O
 b100 W
@@ -1068,7 +1067,6 @@ b111 L
 b111 V
 b111 _
 bz \
-09
 1I
 0O
 b0 W
@@ -1078,14 +1076,15 @@ b0 W
 b1000000001000 8
 b1000000001000 ?
 b1000000001000 A
-b1110100 @
-14
+b1110000 @
 b111 5
 b111 J
 b111 P
-b111 Y
 b111 X
+14
+b111 Y
 0$
+0'
 b111 )
 b111 ;
 b111 Q
@@ -1102,7 +1101,7 @@ b111 N
 b1001 8
 b1001 ?
 b1001 A
-b1101101 @
+b1101001 @
 b1010000 (
 b1010000 :
 b1010000 T
@@ -1140,7 +1139,7 @@ bz N
 b1000000001000 8
 b1000000001000 ?
 b1000000001000 A
-b1101100 @
+b1101000 @
 14
 0$
 1,
@@ -1150,8 +1149,8 @@ b1101100 @
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+b110 Y
 b110 H
 b110 !
 b110 0
@@ -1168,7 +1167,7 @@ b10 W
 b11010000100 8
 b11010000100 ?
 b11010000100 A
-b101101 @
+b101001 @
 b11001010 (
 b11001010 :
 b11001010 T
@@ -1207,7 +1206,6 @@ b1000000001000 A
 b101000 @
 14
 0$
-0'
 b110 )
 b110 ;
 b110 Q
@@ -1359,8 +1357,8 @@ b10 \
 b0 5
 b0 J
 b0 P
-b0 Y
 b0 X
+b0 Y
 0I
 b1 W
 1[
@@ -1410,8 +1408,8 @@ bz \
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+b110 Y
 1I
 b0 W
 0[
@@ -1479,24 +1477,23 @@ b101000000101 f
 #340
 0,
 #345
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1536,6 +1533,7 @@ b101000000110 f
 #350
 0,
 #355
+b110 K
 bz +
 bz =
 bz N
@@ -1545,15 +1543,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1575,24 +1571,23 @@ bx010 @
 #360
 0,
 #365
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1618,6 +1613,7 @@ b101000000111 f
 #370
 0,
 #375
+b110 K
 bz +
 bz =
 bz N
@@ -1627,15 +1623,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1657,24 +1651,23 @@ bx010 @
 #380
 0,
 #385
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1700,6 +1693,7 @@ b101000001000 f
 #390
 0,
 #395
+b110 K
 bz +
 bz =
 bz N
@@ -1709,15 +1703,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1739,24 +1731,23 @@ bx010 @
 #400
 0,
 #405
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1782,6 +1773,7 @@ b101000001001 f
 #410
 0,
 #415
+b110 K
 bz +
 bz =
 bz N
@@ -1791,15 +1783,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1821,24 +1811,23 @@ bx010 @
 #420
 0,
 #425
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1864,6 +1853,7 @@ b101000001010 f
 #430
 0,
 #435
+b110 K
 bz +
 bz =
 bz N
@@ -1873,15 +1863,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1903,24 +1891,23 @@ bx010 @
 #440
 0,
 #445
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -1946,6 +1933,7 @@ b101000001011 f
 #450
 0,
 #455
+b110 K
 bz +
 bz =
 bz N
@@ -1955,15 +1943,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -1985,24 +1971,23 @@ bx010 @
 #460
 0,
 #465
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -2028,6 +2013,7 @@ b101000001100 f
 #470
 0,
 #475
+b110 K
 bz +
 bz =
 bz N
@@ -2037,15 +2023,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`
@@ -2067,24 +2051,23 @@ bx010 @
 #480
 0,
 #485
-x2
-x9
+b101 K
 bx +
 bx =
 bx N
 b110 H
-bx K
 bx \
 bx !
 bx 0
 bx L
 bx V
 bx _
-bx 5
-bx J
-bx P
-bx Y
-bx X
+b101 5
+b101 J
+b101 P
+b101 X
+19
+b10101 Y
 xM
 xG
 x`
@@ -2110,6 +2093,7 @@ b101000001101 f
 #490
 0,
 #495
+b110 K
 bz +
 bz =
 bz N
@@ -2119,15 +2103,13 @@ b110 0
 b110 L
 b110 V
 b110 _
-b110 K
 bz \
-02
-09
 b110 5
 b110 J
 b110 P
-b110 Y
 b110 X
+09
+b110 Y
 0M
 0G
 0`

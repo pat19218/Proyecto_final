@@ -166,41 +166,27 @@ endmodule
 
 
 
-module ALU (input wire [3:0] A,B,
-	    input wire [2:0] funcion,
-	    output logic[3:0] resul,
-			output reg carry, zero);
+module ALU(input [3:0] A, B,
+           input [2:0] funcion,
+           output carry, zero,
+           output [3:0] resul);
 
-reg[4:0] Alu_resultado;
-parameter f1 = 3'b000;
-parameter f2 = 3'b001;
-parameter f3 = 3'b010;
-parameter f4 = 3'b011;
-parameter f5 = 3'b100;
+    reg [4:0] regresul;
 
-always@(*) begin
-	case(funcion)
-		f1:
-			Alu_resultado = A;
-		f2:
-			Alu_resultado = A - B;
-		f3:
-			Alu_resultado = B;
-		f4:
-			Alu_resultado = A + B;
-		f5:
-			Alu_resultado = ~(A & B);
+    always @ (A, B, funcion)
+        case (funcion)
+            3'b000: regresul = A;
+            3'b001: regresul = A - B;
+            3'b010: regresul = B;
+            3'b011: regresul = A + B;
+            3'b100: regresul = {1'b0, ~(A & B)};
+            default: regresul = 5'b10101;
+        endcase
 
-		default: Alu_resultado = A + B;
-	endcase
-
-	assign resul = Alu_resultado;
-	assign carry = Alu_resultado[4];
-	assign zero = (Alu_resultado == 4'b0)? 4'd1:4'd0;
-
-end
+    assign resul = regresul[3:0];
+    assign carry = regresul[4];
+    assign zero = ~(regresul[3] | regresul[2] | regresul[1] | regresul[0]);
 endmodule
-
 
 
 module RAM (input csRAM, weRAM,
