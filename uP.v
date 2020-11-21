@@ -257,6 +257,8 @@ module uP (input clock, reset,
 
 	buftri in_oprnd(.ena(comand[1]), .d(oprnd), .q(data_bus) );
 
+	buftri InPush(.ena(comand[2]), .d(pushbuttons), .q(data_bus) );
+
 	ALU alu(.A(accu), .B(data_bus), .funcion(comand[8:6]), .resul(out_alu), .carry(carry), .zero(zero) );
 
 	accu acumu (.clk(clock), .reset(reset), .ena(comand[10]), .d(out_alu), .q(accu) );
@@ -265,8 +267,6 @@ module uP (input clock, reset,
 
 	RAM memram(.csRAM(comand[5]), .weRAM(comand[4]), .address(address_RAM), .data(data_bus) );
 
-	buftri InPush(.ena(comand[2]), .d(pushbuttons), .q(data_bus) );
-
-	buftri OutSi(.ena(comand[0]), .d(data_bus), .q(FF_out) );
+	buftri OutSi(.ena(comand[3]), .d(data_bus), .q(FF_out) );
 
 endmodule
